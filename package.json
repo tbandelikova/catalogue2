@@ -1,0 +1,15 @@
+{
+  "name": "catalogue2",
+  "version": "1.0.0",
+  "description": "coins",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
+  }
+}
