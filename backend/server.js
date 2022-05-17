@@ -42,23 +42,35 @@ app.get('/list', (req, res) => {
 app.get('/search', (req, res) => {
     const { inputValue, country, composition, quality, fromPrice, toPrice, fromYear, toYear} = req.query;
 
-    console.log(req.query);
+    let dbSearch = `SELECT * FROM coins WHERE TRUE`
 
-    if(inputValue && country && composition && quality && fromPrice && toPrice && fromYear && toYear) {
+    if (inputValue) {
+        dbSearch += ` AND about_info LIKE '%${inputValue}%'`
+    }
+    if (country, composition, quality) {
+        dbSearch += ` AND country='${country}' AND composition='${composition}' AND quality='${quality}'`
+    }
+    if (fromPrice) {
+        dbSearch += ` AND price >= ${+fromPrice}`
+    }
+    if (toPrice) {
+        dbSearch += ` AND price <= ${+toPrice}`
+    }
+    if (fromYear) {
+        dbSearch += ` AND year_of_issue >= ${+fromYear}`
+    }
+    if (toYear) {
+        dbSearch += ` AND year_of_issue <= ${+toYear}`
+    }
+
         connection.query(
-            `SELECT * FROM coins WHERE about_info LIKE '%${inputValue}%'
-                AND country='${country}'
-                AND composition='${composition}'
-                AND quality='${quality}'
-                AND price between ${+fromPrice} AND ${+toPrice}
-                AND year_of_issue between ${+fromYear} and ${+toYear};`, (err, data) => {
+            `${dbSearch};`, (err, data) => {
             if (err) {
                 console.error("Error: ", err);
             } else {
                 res.status(200).json(data);
             }
         });
-    }
 });
 
 app.get('/category/:id', (req, res) => {
