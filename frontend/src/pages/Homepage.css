@@ -1,3 +1,7 @@
+.navbar .navbar-brand {
+    font-size: calc(1.475rem + 2.7vw);
+}
+
 .row {
     align-items: flex-end;
 }
@@ -12,19 +16,17 @@
 }
 
 .btn {
-    font-size: 14px;
-    border-radius: none;
+    font-size: 0.85rem;
+    border-radius: 1px;
     padding: 0.75rem 2rem;
 }
 
-.btn-primary {
+.btn .btn-primary {
     background-color: #833AE0;
-    border-color: #833AE0;
-    border: none;
     transition: all 0.2s linear;
 }
 
-.btn-primary:hover {
+.btn .btn-primary:hover {
     transition: all 0.2s linear;
     background-color: #711fdb;
     opacity: 0.8;
@@ -57,7 +59,7 @@
     box-sizing: border-box;
 }
 
-.card-img-bottom {
+img .card-img-bottom {
     width: 214px;
     height: 214px;
 }

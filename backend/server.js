@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 5000;
 const mysql = require('mysql2');
@@ -8,6 +9,11 @@ const DB_CONNECTION = {
     user: 'root',
     password: 'BandBandsql1712',
     database: 'catalogue'
+}
+
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
 }
 
 app.use(express.json());
@@ -29,7 +35,7 @@ connection.connect((err) => {
     }
 });
 
-app.get('/list', (req, res) => {
+app.get('/list', cors(corsOptions), (req, res) => {
     connection.query('SELECT * FROM coins;', (err, data) => {
         if (err) {
             console.error("Error: ", err);
@@ -39,7 +45,7 @@ app.get('/list', (req, res) => {
     });
 });
 
-app.get('/search', (req, res) => {
+app.get('/search', cors(corsOptions), (req, res) => {
     const { inputValue, country, composition, quality, fromPrice, toPrice, fromYear, toYear} = req.query;
 
     let dbSearch = `SELECT * FROM coins WHERE TRUE`
@@ -47,8 +53,14 @@ app.get('/search', (req, res) => {
     if (inputValue) {
         dbSearch += ` AND about_info LIKE '%${inputValue}%'`
     }
-    if (country, composition, quality) {
-        dbSearch += ` AND country='${country}' AND composition='${composition}' AND quality='${quality}'`
+    if (country) {
+        dbSearch += ` AND country='${country}'`
+    }
+    if (composition) {
+        dbSearch += ` AND composition='${composition}'`
+    }
+    if (quality) {
+        dbSearch += ` AND quality='${quality}'`
     }
     if (fromPrice) {
         dbSearch += ` AND price >= ${+fromPrice}`
@@ -73,7 +85,7 @@ app.get('/search', (req, res) => {
         });
 });
 
-app.get('/category/:id', (req, res) => {
+app.get('/category/:id', cors(corsOptions), (req, res) => {
     connection.query(`SELECT * FROM coins WHERE category_id=${+req.params.id};`, (err, data) => {
       if (err) {
           console.error("Error: ", err);
@@ -83,7 +95,7 @@ app.get('/category/:id', (req, res) => {
     });
 });
 
-app.get('/list/:id', (req, res) => {
+app.get('/list/:id', cors(corsOptions), (req, res) => {
   connection.query(`SELECT * FROM coins WHERE id=${+req.params.id};`, (err, data) => {
     if (err) {
         console.error("Error: ", err);

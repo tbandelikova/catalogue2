@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button, Card, Container, Row, Col, Navbar, Breadcrumb } from "react-bootstrap";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+// const imgPath = 'C:/Users/Tanya/Desktop/Algoritmika/Project_M5/catalogue2/frontend/src/';
 
 class ListOfCoins extends Component {
     state = {
@@ -12,7 +13,8 @@ class ListOfCoins extends Component {
         fromPrice: '',
         toPrice: '',
         fromYear: '',
-        toYear: ''
+        toYear: '',
+        result: []
     }
 
     handleChange = (e) => {
@@ -33,16 +35,17 @@ class ListOfCoins extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        
         ///
         this.setState({ mainValue: '' });
     };
 
     componentDidMount() {
-        fetch(`http://localhost:5000/category/:${this.props.id}`)
+        fetch(`http://localhost:5000/category/` + `${2}`)
             .then(response => response.json())
             .then(data => {
             console.log(data);
+            this.setState({result: data})
             })
             .catch(error => {
             console.log(`Произошла ошибка:
@@ -51,8 +54,8 @@ class ListOfCoins extends Component {
     }
 
     render() {
-        const {mainValue, fromPrice, toPrice, fromYear, toYear} = this.state;
-        console.log(this.props);
+        const {mainValue, fromPrice, toPrice, fromYear, toYear, result} = this.state;
+        
         return (
             <>
                 <Navbar>
@@ -178,17 +181,19 @@ class ListOfCoins extends Component {
                             </Col>
                         </Row> :
                         <Row xs={1} md={2} className="g-4">
-                        {Array.from({ length: 4 }).map(() => (
-                          <Col>
+                            {result.map((card, idx) => (                           
+                          <Col key={idx}>
                             <Card>
-                              <Card.Body>
-                                <Card.Title>Card title</Card.Title>
-                                <Card.Text>
-                                  This is a longer card with supporting text below as a natural
-                                  lead-in to additional content. This content is a little bit longer.
-                                </Card.Text>
-                              </Card.Body>
-                              <Card.Img variant="bottom" src="holder.js/100px160" />
+                                <Col>
+                                {/* src={require(imgPath + card.avers_img).default} */}
+                                    <Card.Img src="img" />
+                                </Col>
+                                <Col>
+                                    <Card.Body>
+                                    <Card.Title>{card.coinname}</Card.Title>
+                                    <Card.Text>{card.about_info}</Card.Text>
+                                    </Card.Body>
+                                </Col>
                             </Card>
                           </Col>
                         ))}

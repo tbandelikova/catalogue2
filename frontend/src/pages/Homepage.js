@@ -65,9 +65,9 @@ class Homepage extends Component {
                                 </Form.Group>
                             </Col>
                             <Col md>
-                                <Button type="submit">
+                                <Button variant="primary" type="submit">
                                     Search
-                                </Button>
+                                </Button>{' '}
                             </Col>
 
                         </Row>
@@ -86,11 +86,11 @@ class Homepage extends Component {
                                         <option value="Australia">Australia</option>
                                         <option value="Bolivia">Bolivia</option>
                                         <option value="Botswana">Botswana</option>
-                                        <option value="British South Africa">British South Africa</option>
-                                        <option value="British Virgin Islands">British Virgin Islands</option>
+                                        <option value="British%South%Africa">British South Africa</option>
+                                        <option value="British%Virgin%Islands">British Virgin Islands</option>
                                         <option value="Canada">Canada</option>
                                         <option value="China">China</option>
-                                        <option value="Costa Rica">Costa Rica</option>
+                                        <option value="Costa%Rica">Costa Rica</option>
                                         <option value="Egypt">Egypt</option>
                                         <option value="Estonia">Estonia</option>
                                         <option value="France">France</option>
@@ -99,10 +99,10 @@ class Homepage extends Component {
                                         <option value="India">India</option>
                                         <option value="Iran">Iran</option>
                                         <option value="Portugal">Portugal</option>
-                                        <option value="the Belgian Congo">the Belgian Congo</option>
-                                        <option value="the Republic of Vietnam">the Republic of Vietnam</option>
-                                        <option value="the Weimar Republic">the Weimar Republic</option>
-                                        <option value="UNITED STATES OF AMERICA">UNITED STATES OF AMERICA</option>
+                                        <option value="the%Belgian%Congo">the Belgian Congo</option>
+                                        <option value="the%Republic%of%Vietnam">the Republic of Vietnam</option>
+                                        <option value="the%Weimar%Republic">the Weimar Republic</option>
+                                        <option value="UNITED%STATES%OF%AMERICA">UNITED STATES OF AMERICA</option>
                                         <option value="Yemen">Yemen</option>
                                         </Form.Select>
                                 </Form.Group>
@@ -168,7 +168,7 @@ class Homepage extends Component {
                             <Card>
                             <Card.Body>
                                 <Card.Title>Bullion coins</Card.Title>
-                                    <Link to="/List" id={2}>Show all {'>'}</Link>
+                                    <Link to="/category/2">Show all {'>'}</Link>
                             </Card.Body>
                             <Card.Img variant="bottom" src={Bullion_coins} />
                             </Card>
@@ -177,7 +177,7 @@ class Homepage extends Component {
                             <Card>
                                 <Card.Body>
                                     <Card.Title>Exclusive coins</Card.Title>                                   
-                                        <Link to="/List" id={3}>Show all {'>'}</Link>                                  
+                                        <Link to="/category/3">Show all {'>'}</Link>                                  
                                    </Card.Body>
                                 <Card.Img variant="bottom" src={Exclusive_coins} />
                             </Card>
@@ -186,7 +186,7 @@ class Homepage extends Component {
                             <Card>
                                 <Card.Body>
                                     <Card.Title>Commemorative coins</Card.Title>                                    
-                                        <Link to="/List" id={1}>Show all {'>'}</Link>                                   
+                                        <Link to="/category/1">Show all {'>'}</Link>                                   
                                 </Card.Body>
                                 <Card.Img variant="bottom" src={Commemorative_coins} />
                             </Card>
