@@ -170,7 +170,7 @@ class Homepage extends Component {
                                 <Card.Title>Bullion coins</Card.Title>
                                     <Link to="/category/2">Show all {'>'}</Link>
                             </Card.Body>
-                            <Card.Img variant="bottom" src={Bullion_coins} />
+                            <Card.Img variant="bottom" src={Bullion_coins} style={{ width: '72%' }} />
                             </Card>
                             </Col>
                             <Col>
@@ -179,7 +179,7 @@ class Homepage extends Component {
                                     <Card.Title>Exclusive coins</Card.Title>                                   
                                         <Link to="/category/3">Show all {'>'}</Link>                                  
                                    </Card.Body>
-                                <Card.Img variant="bottom" src={Exclusive_coins} />
+                                <Card.Img variant="bottom" src={Exclusive_coins} style={{ width: '72%' }} />
                             </Card>
                             </Col>
                             <Col>
@@ -188,7 +188,7 @@ class Homepage extends Component {
                                     <Card.Title>Commemorative coins</Card.Title>                                    
                                         <Link to="/category/1">Show all {'>'}</Link>                                   
                                 </Card.Body>
-                                <Card.Img variant="bottom" src={Commemorative_coins} />
+                                <Card.Img variant="bottom" src={Commemorative_coins} style={{ width: '72%' }} />
                             </Card>
                           </Col>
                         
