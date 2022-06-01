@@ -71,7 +71,7 @@ class ListOfCoins extends Component {
                 </Navbar>
                 <Container>
                     <Form onSubmit={this.handleSubmit}>
-                    <Row>
+                    <Row className="search-block">
                             <Col md>
                                 <Form.Group className="mb-0" controlId="formText">
                                     <Form.Label className="main-label">Input field</Form.Label>
@@ -181,16 +181,17 @@ class ListOfCoins extends Component {
                             </Col>
                         </Row> :
                         <Row xs={1} md={2} className="g-4">
-                            {result.map((card, idx) => (                           
-                          <Col key={idx}>
+                            {result.map((card) => (                           
+                          <Col key={card.id}>
                             <Card>
                                 <Col>
                                 {/* src={require(imgPath + card.avers_img).default} */}
                                     <Card.Img src="img" />
                                 </Col>
                                 <Col>
+                                {console.log(card)}
                                     <Card.Body>
-                                    <Card.Title>{card.coinname}</Card.Title>
+                                    <Card.Title><Link to={{pathname: "/coin", state: {coin: card}}} >{card.coinname}</Link></Card.Title>
                                     <Card.Text>{card.about_info}</Card.Text>
                                     </Card.Body>
                                 </Col>

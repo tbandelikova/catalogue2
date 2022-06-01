@@ -54,7 +54,7 @@ class Homepage extends Component {
                 </Navbar>
                 <Container>
                     <Form onSubmit={this.handleSubmit}>
-                        <Row>
+                        <Row className="search-block">
                             <Col md>
                                 <Form.Group className="mb-0" controlId="formText">
                                     <Form.Label className="main-label">Input field</Form.Label>
