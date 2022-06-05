@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { Card, Row, Col, Table, Container} from 'react-bootstrap';
 
 class Description extends Component {
+
 componentDidMount() {
-    // const {coin} = this.props.location.state;
-    {console.log(this.props.location)}
+    // const {coin} = this.props.location;
+    // {console.log(coin)}
 }
 
     render() {
@@ -14,14 +15,14 @@ componentDidMount() {
                 <Row className="justify-content-md-center">
                 <Col lg md='5'>
                 <Card className="justify-content-md-center">                                
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Img variant="bottom" src="holder.js/100px180" />
+                    <Card.Img variant="top" src="https://via.placeholder.com/100" />
+                    <Card.Img variant="bottom" src="https://via.placeholder.com/100" />
                 </Card>
                 </Col>
                 <Col lg md='5'>
                 <Card bg="light">                  
                     <Card.Body>
-                        
+                    {console.log(this.props)}
                         <Card.Title>Canadian Beaver</Card.Title>
                         <Card.Text>
                         "Canadian beaver". Unique coin with the image of a beaver. Face value - 5 cents. Created under Elizabeth II.

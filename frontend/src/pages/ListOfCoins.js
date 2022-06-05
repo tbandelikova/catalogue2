@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button, Card, Container, Row, Col, Navbar, Breadcrumb } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// const imgPath = 'C:/Users/Tanya/Desktop/Algoritmika/Project_M5/catalogue2/frontend/src/';
+const imgPath = 'C:/Users/Tanya/Desktop/Algoritmika/Project_M5/catalogue2/frontend/public';
 
 class ListOfCoins extends Component {
     state = {
@@ -41,7 +41,7 @@ class ListOfCoins extends Component {
     };
 
     componentDidMount() {
-        fetch(`http://localhost:5000/category/` + `${2}`)
+        fetch(`http://localhost:5000/category/` + `${3}`)
             .then(response => response.json())
             .then(data => {
             console.log(data);
@@ -184,9 +184,10 @@ class ListOfCoins extends Component {
                             {result.map((card) => (                           
                           <Col key={card.id}>
                             <Card>
+                                <Row>
                                 <Col>
-                                {/* src={require(imgPath + card.avers_img).default} */}
-                                    <Card.Img src="img" />
+                                    <Card.Img src={imgPath + '/' + card.avers_img}
+                                    alt={'coin ' + card.avers_img} />
                                 </Col>
                                 <Col>
                                 {console.log(card)}
@@ -195,6 +196,7 @@ class ListOfCoins extends Component {
                                     <Card.Text>{card.about_info}</Card.Text>
                                     </Card.Body>
                                 </Col>
+                                </Row>
                             </Card>
                           </Col>
                         ))}
