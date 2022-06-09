@@ -41,7 +41,7 @@ class ListOfCoins extends Component {
     };
 
     componentDidMount() {
-        fetch(`http://localhost:5000/category/` + `${3}`)
+        fetch(`http://localhost:5000/category/` + `${1}`)
             .then(response => response.json())
             .then(data => {
             console.log(data);
@@ -193,7 +193,7 @@ class ListOfCoins extends Component {
                                 {console.log(card)}
                                     <Card.Body>
                                     <Card.Title><Link to={{pathname: "/coin", state: {coin: card}}} >{card.coinname}</Link></Card.Title>
-                                    <Card.Text>{card.about_info}</Card.Text>
+                                    <Card.Text>{card.about_info.slice(0, card.about_info.indexOf('.', 20) + 1)}</Card.Text>
                                     </Card.Body>
                                 </Col>
                                 </Row>

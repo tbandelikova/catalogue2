@@ -1,11 +1,7 @@
 import "./Homepage.css";
 import React, { Component } from "react";
-import { Card, Container, Row, Col, Navbar, Form, Button } from "react-bootstrap";
-import {Link} from "react-router-dom";
-
-import Bullion_coins from '../img/Bullion_coins.png';
-import Exclusive_coins from '../img/Exclusive_coins.png';
-import Commemorative_coins from '../img/Commemorative_coins.png';
+import { Container, Row, Col, Navbar, Form, Button } from "react-bootstrap";
+import CategoryCards from "../components/CategoryCards";
 
 class Homepage extends Component {
     state = {
@@ -162,37 +158,7 @@ class Homepage extends Component {
 
                                 
                             </Col>
-                        </Row> :
-                        <Row xs={2} md={3} className="g-3">
-                          <Col>
-                            <Card>
-                            <Card.Body>
-                                <Card.Title>Bullion coins</Card.Title>
-                                    <Link to="/category/2">Show all {'>'}</Link>
-                            </Card.Body>
-                            <Card.Img variant="bottom" src={Bullion_coins} style={{ width: '72%' }} />
-                            </Card>
-                            </Col>
-                            <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Title>Exclusive coins</Card.Title>                                   
-                                        <Link to="/category/3">Show all {'>'}</Link>                                  
-                                   </Card.Body>
-                                <Card.Img variant="bottom" src={Exclusive_coins} style={{ width: '72%' }} />
-                            </Card>
-                            </Col>
-                            <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Title>Commemorative coins</Card.Title>                                    
-                                        <Link to="/category/1">Show all {'>'}</Link>                                   
-                                </Card.Body>
-                                <Card.Img variant="bottom" src={Commemorative_coins} style={{ width: '72%' }} />
-                            </Card>
-                          </Col>
-                        
-                      </Row>
+                        </Row> : <CategoryCards />
                         }
 
                     </Form>

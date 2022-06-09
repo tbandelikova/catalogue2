@@ -14,9 +14,10 @@ componentDidMount() {
             <Container>
                 <Row className="justify-content-md-center">
                 <Col lg md='5'>
-                <Card className="justify-content-md-center">                                
-                    <Card.Img variant="top" src="https://via.placeholder.com/100" />
-                    <Card.Img variant="bottom" src="https://via.placeholder.com/100" />
+                <Card>                                
+                    <Card.Img variant="top" src="https://via.placeholder.com/100" style={{ width: '60%' }} />
+                    <br></br>
+                    <Card.Img variant="bottom" src="https://via.placeholder.com/100" style={{ width: '60%' }} />
                 </Card>
                 </Col>
                 <Col lg md='5'>
