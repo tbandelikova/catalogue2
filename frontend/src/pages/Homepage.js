@@ -2,6 +2,7 @@ import "./Homepage.css";
 import React, { Component } from "react";
 import { Container, Row, Col, Navbar, Form, Button } from "react-bootstrap";
 import CategoryCards from "../components/CategoryCards";
+import store from "../redux/store";
 
 class Homepage extends Component {
     state = {
@@ -14,6 +15,11 @@ class Homepage extends Component {
         toPrice: '',
         fromYear: '',
         toYear: ''
+    }
+
+    componentDidMount() {
+        const state = store.getState();
+        this.setState({ isAdvancedFilter: state.isAdvancedFilter });
     }
 
     handleChange = (e) => {
