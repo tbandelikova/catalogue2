@@ -3,11 +3,12 @@ import React, { Component } from "react";
 import { Container, Row, Col, Navbar, Form, Button } from "react-bootstrap";
 import CategoryCards from "../components/CategoryCards";
 import store from "../redux/store";
+import { filterCoins } from "../redux/actions";
 
 class Homepage extends Component {
     state = {
         isAdvancedFilter: false,
-        mainValue: '',
+        inputValue: '',
         country: '',
         metal: '',
         quality: '',
@@ -17,10 +18,10 @@ class Homepage extends Component {
         toYear: ''
     }
 
-    componentDidMount() {
-        const state = store.getState();
-        this.setState({ isAdvancedFilter: state.isAdvancedFilter });
-    }
+    // componentDidMount() {
+    //     const state = store.getState();
+    //     this.setState({ isAdvancedFilter: state.isAdvancedFilter });
+    // }
 
     handleChange = (e) => {
         if (this.state.isAdvancedFilter) {
@@ -29,9 +30,8 @@ class Homepage extends Component {
                 [e.target.name]: e.target.value,
             }))
         } else {
-            this.setState({ mainValue: e.target.value });
+            this.setState({ inputValue: e.target.value });
         }
-        console.log(this.state)
     }
 
     handleClick = () => {
@@ -41,12 +41,35 @@ class Homepage extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);
-        ///
-        this.setState({ mainValue: '' });
+        const SEARCH_URL = new URL('http://localhost:5000/search');
+        const { inputValue, country, metal, quality, fromPrice, toPrice, fromYear, toYear} = this.state;
+        const params = {
+            inputValue: inputValue,
+            country: country,
+            composition: metal,
+            quality: quality,
+            fromPrice: fromPrice,
+            toPrice: toPrice,
+            fromYear: fromYear,
+            toYear: toYear
+        }
+        SEARCH_URL.search = new URLSearchParams(params).toString();
+
+        fetch(SEARCH_URL)
+        .then(response => response.json())
+        .then(data => {
+        console.log(data);
+        store.dispatch(filterCoins(data))
+        })
+        .catch(error => {
+        console.log(`Произошла ошибка:
+        ${error.message}`);
+        });
+        // this.setState({ inputValue: '' }, {isAdvancedFilter: false});
     };
 
     render() {
-        const {mainValue, fromPrice, toPrice, fromYear, toYear} = this.state;
+        const {inputValue, fromPrice, toPrice, fromYear, toYear} = this.state;
         return (
             <>
                 <Navbar>
@@ -61,8 +84,8 @@ class Homepage extends Component {
                                 <Form.Group className="mb-0" controlId="formText">
                                     <Form.Label className="main-label">Input field</Form.Label>
                                     <Form.Control className="main-input" type="text" 
-                                    name='mainValue'
-                                    value={mainValue}
+                                    name='inputValue'
+                                    value={inputValue}
                                     onChange={this.handleChange} />
                                 </Form.Group>
                             </Col>
@@ -85,6 +108,7 @@ class Homepage extends Component {
                                 <Form.Group className="mb-2" controlId="formCountry">
                                     <Form.Label className="main-label">Issuing country</Form.Label>
                                     <Form.Select className="form-control" name="country" onChange={this.handleChange}>
+                                        <option value=""></option>
                                         <option value="Australia">Australia</option>
                                         <option value="Bolivia">Bolivia</option>
                                         <option value="Botswana">Botswana</option>
@@ -111,6 +135,7 @@ class Homepage extends Component {
                                 <Form.Group className="mb-2" controlId="formMetal">
                                     <Form.Label className="main-label">Metal</Form.Label>
                                     <Form.Select className="form-control" name="metal" onChange={this.handleChange}>
+                                        <option value=""></option>
                                         <option value="Gold">Gold</option>
                                         <option value="Nickel">Nickel</option>
                                         <option value="Silver">Silver</option>
@@ -120,6 +145,7 @@ class Homepage extends Component {
                                 <Form.Group className="mb-2" controlId="formQuality">
                                     <Form.Label className="main-label">Quality of the coin</Form.Label>
                                     <Form.Select className="form-control" name="quality" onChange={this.handleChange}>
+                                        <option value=""></option>
                                         <option value="BU">Brilliant Uncirculated</option>
                                         <option value="Proof">Proof</option>
                                         <option value="Bullion">Bullion</option>

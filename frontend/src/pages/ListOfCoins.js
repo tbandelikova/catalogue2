@@ -6,7 +6,7 @@ const imgPath = 'C:/Users/Tanya/Desktop/Algoritmika/Project_M5/catalogue2/fronte
 class ListOfCoins extends Component {
     state = {
         isAdvancedFilter: false,
-        mainValue: '',
+        inputValue: '',
         country: '',
         metal: '',
         quality: '',
@@ -24,7 +24,7 @@ class ListOfCoins extends Component {
                 [e.target.name]: e.target.value,
             }))
         } else {
-            this.setState({ mainValue: e.target.value });
+            this.setState({ inputValue: e.target.value });
         }
         console.log(this.state)
     }
@@ -37,11 +37,11 @@ class ListOfCoins extends Component {
         e.preventDefault();
         
         ///
-        this.setState({ mainValue: '' });
+        this.setState({ inputValue: '' });
     };
 
     componentDidMount() {
-        fetch(`http://localhost:5000/category/` + `${1}`)
+        fetch(`http://localhost:5000/category/${1}`)
             .then(response => response.json())
             .then(data => {
             console.log(data);
@@ -54,7 +54,7 @@ class ListOfCoins extends Component {
     }
 
     render() {
-        const {mainValue, fromPrice, toPrice, fromYear, toYear, result} = this.state;
+        const {inputValue, fromPrice, toPrice, fromYear, toYear, result} = this.state;
         
         return (
             <>
@@ -76,8 +76,8 @@ class ListOfCoins extends Component {
                                 <Form.Group className="mb-0" controlId="formText">
                                     <Form.Label className="main-label">Input field</Form.Label>
                                     <Form.Control className="main-input" type="text" 
-                                    name='mainValue'
-                                    value={mainValue}
+                                    name='inputValue'
+                                    value={inputValue}
                                     onChange={this.handleChange} />
                                 </Form.Group>
                             </Col>

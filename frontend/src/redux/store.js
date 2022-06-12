@@ -1,6 +1,6 @@
-import { configureStore } from "redux";
+import { createStore  } from 'redux';
 import reducer from "./reducer";
 
-let store = configureStore(reducer);
+let store = createStore(reducer);
 
 export default store;

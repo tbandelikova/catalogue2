@@ -1,8 +1,8 @@
-export function filterCoins(id) {
+export function filterCoins(filterParams) {
     return {
       type: 'FILTER_COINS',
       payload: {
-        id: id
+        filterParams: filterParams
       }
     }
   }

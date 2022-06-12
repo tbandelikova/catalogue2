@@ -1,4 +1,6 @@
+import React from "react";
 import { Routes, Route } from 'react-router-dom';
+
 import Homepage from './pages/Homepage';
 import ListOfCoins from './pages/ListOfCoins';
 import CoinDescription from './pages/CoinDescription';
@@ -11,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/list" element={<ListOfCoins />} />
+        <Route path="/search" element={<ListOfCoins />} />
         <Route path="/category/:id" element={<ListOfCoins />} />
         <Route path="/coin" element={<CoinDescription />} />
       </Routes>
