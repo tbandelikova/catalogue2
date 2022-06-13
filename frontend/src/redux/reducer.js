@@ -16,11 +16,9 @@ const initialState = {
 function reducer(state = initialState, action) {
     switch(action.type) {
         case 'FILTER_COINS':
-            // const good = state.goods.find(item => 
-            //     item.id === action.payload.id);
-            // const cart = [ ...state.cart, good ];
-            // return {...state, cart}
-            break
+            const coins = [ action.payload.coins ];
+            console.log(state.coins)
+            return {...state, coins}
         default:
             return state;
     }

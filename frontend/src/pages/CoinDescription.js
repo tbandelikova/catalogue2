@@ -1,67 +1,58 @@
-import React, { Component } from "react";
+import React from "react";
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Card, Row, Col, Table, Container} from 'react-bootstrap';
 
-class Description extends Component {
+export default function CoinDescription() {
+    const location = useLocation()
+    const { coin } = location.state;
+    const imgPath = 'http://127.0.0.1:8887/';
 
-componentDidMount() {
-    // const {coin} = this.props.location;
-    // {console.log(coin)}
-}
-
-    render() {
         return (
             <Container>
                 <Row className="justify-content-md-center">
                 <Col lg md='5'>
                 <Card>                                
-                    <Card.Img variant="top" src="https://via.placeholder.com/100" style={{ width: '60%' }} />
+                    <Card.Img variant="top" src={imgPath + coin.avers_img.slice(coin.avers_img.indexOf('/'))} alt="https://via.placeholder.com/100" style={{ width: '60%' }} />
                     <br></br>
-                    <Card.Img variant="bottom" src="https://via.placeholder.com/100" style={{ width: '60%' }} />
+                    <Card.Img variant="bottom" src={imgPath + coin.revers_img.slice(coin.revers_img.indexOf('/'))} alt="https://via.placeholder.com/100" style={{ width: '60%' }} />
                 </Card>
                 </Col>
                 <Col lg md='5'>
                 <Card bg="light">                  
                     <Card.Body>
-                    {console.log(this.props)}
-                        <Card.Title>Canadian Beaver</Card.Title>
-                        <Card.Text>
-                        "Canadian beaver". Unique coin with the image of a beaver. Face value - 5 cents. Created under Elizabeth II.
-                        </Card.Text>
-                        <Card.Text>
-                        In the center of the obverse is a portrait of Queen Elizabeth II, the profile is directed to the right. The inscription on the left semicircle (English) ELIZABETH II, on the right semicircle D · G · REGINA (ELIZABETH II QUEEN by the Grace of GOD) with dots. Below is a mint mark.
-                        In the center of the coin reverse is a Canadian beaver on a rock sticking out of the water. At the top is a semicircle with the inscription "5 cents" between two maple leaves. At the bottom in two lines is the inscription CANADA (CANADA) and the year of minting.
-                        </Card.Text>
+                        <Card.Title>{coin.coinname}</Card.Title>
+                        <Card.Text>{coin.about_info}</Card.Text>
                     </Card.Body>
                     <Table striped bordered hover size="sm">
                         <tbody>
                             <tr>
                             <td>Issuing Country</td>
-                            <td>CANADA</td>
+                            <td>{coin.country}</td>
                             </tr>
                             <tr>
                             <td>Composition</td>
-                            <td>Nickel</td>
+                            <td>{coin.composition}</td>
+                            </tr>
+                            <tr>
+                            <td>Quality</td>
+                            <td>{coin.quality}</td>
                             </tr>
                             <tr>
                             <td>Denomination</td>
-                            <td>5 cents</td>
-                            </tr>
-                            <tr>
-                            <td>1</td>
-                            <td>Mark</td>
+                            <td>{coin.denomination}</td>
                             </tr>
                             <tr>
                             <td>Year</td>
-                            <td>1965</td>
+                            <td>{coin.year_of_issue}</td>
                             </tr>
                             <tr>
                             <td>Weight</td>
-                            <td>4.54 g</td>
+                            <td>{coin.weight} g</td>
                             </tr>
                             <tr>
                             <td>Price</td>
-                            <td>40$</td>
+                            <td>{coin.price}$</td>
                             </tr>
                         </tbody>
                         </Table>
@@ -71,7 +62,4 @@ componentDidMount() {
                 </Row>
             </Container>
         )
-    }
 }
-
-export default Description;

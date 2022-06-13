@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button, Card, Container, Row, Col, Navbar, Breadcrumb } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const imgPath = 'C:/Users/Tanya/Desktop/Algoritmika/Project_M5/catalogue2/frontend/public';
+const imgPath = 'http://127.0.0.1:8887/';
 
 class ListOfCoins extends Component {
     state = {
@@ -40,11 +40,11 @@ class ListOfCoins extends Component {
         this.setState({ inputValue: '' });
     };
 
-    componentDidMount() {
+    componentDidMount() {  
+        
         fetch(`http://localhost:5000/category/${1}`)
             .then(response => response.json())
             .then(data => {
-            console.log(data);
             this.setState({result: data})
             })
             .catch(error => {
@@ -186,13 +186,12 @@ class ListOfCoins extends Component {
                             <Card>
                                 <Row>
                                 <Col>
-                                    <Card.Img src={imgPath + '/' + card.avers_img}
-                                    alt={'coin ' + card.avers_img} />
+                                    <Card.Img src={imgPath + card.avers_img.slice(card.avers_img.indexOf('/'))}
+                                    alt={'coin ' + card.avers_img} style={{ width: '60%' }}  />
                                 </Col>
                                 <Col>
-                                {console.log(card)}
                                     <Card.Body>
-                                    <Card.Title><Link to={{pathname: "/coin", state: {coin: card}}} >{card.coinname}</Link></Card.Title>
+                                    <Card.Title><Link to="/coin" state={{coin: card}} >{card.coinname}</Link></Card.Title>
                                     <Card.Text>{card.about_info.slice(0, card.about_info.indexOf('.', 20) + 1)}</Card.Text>
                                     </Card.Body>
                                 </Col>

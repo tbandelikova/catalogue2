@@ -40,7 +40,6 @@ class Homepage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
         const SEARCH_URL = new URL('http://localhost:5000/search');
         const { inputValue, country, metal, quality, fromPrice, toPrice, fromYear, toYear} = this.state;
         const params = {
@@ -58,7 +57,7 @@ class Homepage extends Component {
         fetch(SEARCH_URL)
         .then(response => response.json())
         .then(data => {
-        console.log(data);
+            console.log(data);
         store.dispatch(filterCoins(data))
         })
         .catch(error => {
