@@ -2,11 +2,11 @@ import React from "react";
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Card, Row, Col, Table, Container} from 'react-bootstrap';
+import { imgPath } from "../config";
 
 export default function CoinDescription() {
     const location = useLocation()
     const { coin } = location.state;
-    const imgPath = 'http://127.0.0.1:8887/';
 
         return (
             <Container>

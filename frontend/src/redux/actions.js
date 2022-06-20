@@ -1,8 +1,26 @@
-export function filterCoins(coins) {
+export function listOfCoins(coin) {
+    return {
+      type: 'LIST_OF_COINS',
+      payload: {
+        coins: coin
+      }
+    }
+  }
+
+  export function filterCoins(filter) {
     return {
       type: 'FILTER_COINS',
       payload: {
-        coins: coins
+        filter: filter
+      }
+    }
+  }
+
+  export function toggleFilter(isAdvancedFilter) {
+    return {
+      type: 'TOGGLE_FILTER',
+      payload: {
+        isAdvancedFilter: isAdvancedFilter
       }
     }
   }

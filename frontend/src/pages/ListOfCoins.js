@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button, Card, Container, Row, Col, Navbar, Breadcrumb } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const imgPath = 'http://127.0.0.1:8887/';
+import { imgPath } from "../config";
 
 class ListOfCoins extends Component {
     state = {
