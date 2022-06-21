@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import { filterCoins } from "../redux/actions";
 import { connect } from "react-redux";
+import { countries } from "../config";
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -26,27 +27,9 @@ class AdvFilter extends Component {
                         <Form.Label className="main-label">Issuing country</Form.Label>
                         <Form.Select className="form-control" name="country" onChange={this.handleChange}>
                             <option value=""></option>
-                            <option value="Australia">Australia</option>
-                            <option value="Bolivia">Bolivia</option>
-                            <option value="Botswana">Botswana</option>
-                            <option value="British%South%Africa">British South Africa</option>
-                            <option value="British%Virgin%Islands">British Virgin Islands</option>
-                            <option value="Canada">Canada</option>
-                            <option value="China">China</option>
-                            <option value="Costa%Rica">Costa Rica</option>
-                            <option value="Egypt">Egypt</option>
-                            <option value="Estonia">Estonia</option>
-                            <option value="France">France</option>
-                            <option value="Ghana">Ghana</option>
-                            <option value="Iceland">Iceland</option>
-                            <option value="India">India</option>
-                            <option value="Iran">Iran</option>
-                            <option value="Portugal">Portugal</option>
-                            <option value="the%Belgian%Congo">the Belgian Congo</option>
-                            <option value="the%Republic%of%Vietnam">the Republic of Vietnam</option>
-                            <option value="the%Weimar%Republic">the Weimar Republic</option>
-                            <option value="UNITED%STATES%OF%AMERICA">UNITED STATES OF AMERICA</option>
-                            <option value="Yemen">Yemen</option>
+                            {countries.map((country, i) => (
+                                <option key={i} value={country.replace(/\s/g,'%')}>{country}</option>
+                            ))}
                             </Form.Select>
                     </Form.Group>
                     <Form.Group className="mb-2" controlId="formMetal">
