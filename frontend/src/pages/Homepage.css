@@ -29,8 +29,12 @@
 
 .btn-primary:hover {
     transition: all 0.2s linear !important;
-    background-color: #711fdb !important;
+    background-color: #c86adfcc !important;
     opacity: 0.8 !important;
+}
+.btn a {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .adv-input {
