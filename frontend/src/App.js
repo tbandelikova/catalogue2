@@ -12,7 +12,6 @@ function App() {
     <div className='App'>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/list" element={<ListOfCoins />} />
         <Route path="/search" element={<ListOfCoins />} />
         <Route path="/category/:id" element={<ListOfCoins />} />
         {/* <Route path="/category/:id" render={({match}) => <ListOfCoins id={match.params.id} />} /> */}

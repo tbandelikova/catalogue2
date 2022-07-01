@@ -51,7 +51,6 @@ class Filter extends Component {
         console.log(`Произошла ошибка:
         ${error.message}`);
         });
-        // this.props.toggleFilter(this.props.isAdvancedFilter);
     }
 
     render() {
@@ -69,10 +68,13 @@ class Filter extends Component {
                     </Form.Group>
                 </Col>
                 <Col md>
-                    <Button variant="primary" type="button"
-                    onClick={this.handleClick}>
-                        <Link to="/search">Search</Link>
-                    </Button>{' '}
+                    <Link to="/search">
+                        <Button variant="primary" type="button"
+                        onClick={this.handleClick}>
+                            Search
+                        </Button>{' '}
+                    </Link>
+
                 </Col>
             </Row>   
         )

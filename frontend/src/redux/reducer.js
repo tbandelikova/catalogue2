@@ -1,6 +1,6 @@
 const initialState = {
     coins: [],
-    filterParams: {
+    filterParams: {  
         inputValue: '',
         country: '',
         metal: '',
@@ -16,10 +16,15 @@ const initialState = {
 function reducer(state = initialState, action) {
     switch(action.type) {
         case 'FILTER_COINS':
-            const filterParams = action.payload.filter;
+            const param = action.payload.filter;
+            const asArray = Object.entries(state.filterParams);
+            const filterInitial = asArray.filter(([key]) => key !== Object.keys(param)[0]);
+            const filterParams = {...Object.fromEntries(filterInitial), ...param};
             return {...state, filterParams}
         case 'LIST_OF_COINS':
             const coins = action.payload.coins;
+            state.isAdvancedFilter = false;
+            console.log(state)
             return {...state, coins}  
         case 'TOGGLE_FILTER':
             return {

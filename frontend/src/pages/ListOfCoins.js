@@ -25,20 +25,6 @@ class ListOfCoins extends Component {
         this.props.toggleFilter(this.props.isAdvancedFilter);
     }
 
-
-    // componentDidMount() {  
-        
-    //     fetch(`http://localhost:5000/category/${1}`)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //         this.setState({result: data})
-    //         })
-    //         .catch(error => {
-    //         console.log(`Произошла ошибка:
-    //         ${error.message}`);
-    //         });
-    // }
-
     render() {
         const {isAdvancedFilter, result} = this.props;
         
