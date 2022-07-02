@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 import { filterCoins, listOfCoins, toggleFilter } from "../redux/actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -68,13 +68,8 @@ class Filter extends Component {
                     </Form.Group>
                 </Col>
                 <Col md>
-                    <Link to="/search">
-                        <Button variant="primary" type="button"
-                        onClick={this.handleClick}>
-                            Search
-                        </Button>{' '}
-                    </Link>
-
+                    <Link to="/search" className="btn btn-primary" role="button"
+                        onClick={this.handleClick}>Search</Link>
                 </Col>
             </Row>   
         )
