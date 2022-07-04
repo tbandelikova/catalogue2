@@ -13,9 +13,9 @@ export default function CoinDescription() {
                 <Row className="justify-content-md-center">
                 <Col lg md='5'>
                 <Card>                                
-                    <Card.Img variant="top" src={imgPath + coin.avers_img.slice(coin.avers_img.indexOf('/'))} alt="https://via.placeholder.com/100" style={{ width: '60%' }} />
+                    <Card.Img variant="top" src={imgPath + coin.avers_img.slice(coin.avers_img.indexOf('/'))} alt="https://via.placeholder.com/100" style={{ width: '50%' }} />
                     <br></br>
-                    <Card.Img variant="bottom" src={imgPath + coin.revers_img.slice(coin.revers_img.indexOf('/'))} alt="https://via.placeholder.com/100" style={{ width: '60%' }} />
+                    <Card.Img variant="bottom" src={imgPath + coin.revers_img.slice(coin.revers_img.indexOf('/'))} alt="https://via.placeholder.com/100" style={{ width: '50%' }} />
                 </Card>
                 </Col>
                 <Col lg md='5'>
