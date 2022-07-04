@@ -24,7 +24,7 @@ function reducer(state = initialState, action) {
         case 'LIST_OF_COINS':
             const coins = action.payload.coins;
             state.isAdvancedFilter = false;
-            console.log(state)
+            console.log(state.coins)
             return {...state, coins}  
         case 'TOGGLE_FILTER':
             return {
