@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = (state) => {
     return {
         isAdvancedFilter: state.isAdvancedFilter,
-        result: state.coins
+        result: state.coins,
     }
   } 
 

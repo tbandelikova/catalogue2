@@ -28,7 +28,8 @@ class AdvFilter extends Component {
                         <Form.Select className="form-control" name="country" onChange={this.handleChange}>
                             <option value=""></option>
                             {countries.map((country, i) => (
-                                <option key={i} value={country.replace(/\s/g,'%')}>{country}</option>
+                                //country.replace(/\s/g,'%')
+                                <option key={i} value={country}>{country}</option>
                             ))}
                             </Form.Select>
                     </Form.Group>

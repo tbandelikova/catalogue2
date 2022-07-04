@@ -44,7 +44,6 @@ class Filter extends Component {
         fetch(SEARCH_URL)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             this.props.listOfCoins(data)
         })
         .catch(error => {
