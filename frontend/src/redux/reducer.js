@@ -10,7 +10,8 @@ const initialState = {
         fromYear: '',
         toYear: ''
     },
-    isAdvancedFilter: false
+    isAdvancedFilter: false,
+    isLoading: false,
 }
 
 function reducer(state = initialState, action) {
@@ -30,7 +31,12 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 isAdvancedFilter: !state.isAdvancedFilter
-            }  
+            } 
+        case 'LOADING_STATUS':
+            return {
+                ...state,
+                isLoading: action.payload.isLoading
+            }      
         default:
             return state;
     }

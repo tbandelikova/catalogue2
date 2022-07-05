@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Form } from "react-bootstrap";
-import { filterCoins, listOfCoins, toggleFilter } from "../redux/actions";
+import { filterCoins, listOfCoins, toggleFilter, loadingStatus } from "../redux/actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,8 @@ const mapDispatchToProps = dispatch => {
     return {
         filterCoins: filter => dispatch(filterCoins(filter)),
         listOfCoins: coin => dispatch(listOfCoins(coin)),
-        toggleFilter: (isAdvancedFilter) => dispatch(toggleFilter(isAdvancedFilter))
+        toggleFilter: (isAdvancedFilter) => dispatch(toggleFilter(isAdvancedFilter)),
+        loadingStatus: (isLoading) => dispatch(loadingStatus(isLoading)),
     }
 };
 
@@ -41,6 +42,8 @@ class Filter extends Component {
         }
         SEARCH_URL.search = new URLSearchParams(params).toString();
 
+        this.props.loadingStatus(true);
+
         fetch(SEARCH_URL)
         .then(response => response.json())
         .then(data => {
@@ -50,6 +53,7 @@ class Filter extends Component {
         console.log(`Произошла ошибка:
         ${error.message}`);
         });
+        this.props.loadingStatus(false);
     }
 
     render() {

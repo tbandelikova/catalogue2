@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { listOfCoins } from "../redux/actions";
+import { listOfCoins, loadingStatus } from "../redux/actions";
 import { connect } from "react-redux";
 
 import Bullion_coins from '../img-category/Bullion_coins.png';
@@ -11,12 +11,15 @@ import Commemorative_coins from '../img-category/Commemorative_coins.png';
 const mapDispatchToProps = (dispatch) => {
     return {
         listOfCoins: coin => dispatch(listOfCoins(coin)),
+        loadingStatus: (isLoading) => dispatch(loadingStatus(isLoading)),
     }
 };
 
 class CategoryCards extends Component {
 
     handleClick = (id) => {
+        this.props.loadingStatus(true);
+
         fetch(`http://localhost:5000/category/${id}`)
         .then(response => response.json())
         .then(data => {
@@ -26,6 +29,8 @@ class CategoryCards extends Component {
         console.log(`Произошла ошибка:
         ${error.message}`);
         });
+
+        this.props.loadingStatus(false);
     }
 
 render() {
