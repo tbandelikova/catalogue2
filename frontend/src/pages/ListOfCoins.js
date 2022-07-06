@@ -33,7 +33,7 @@ class ListOfCoins extends Component {
 
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
-}
+    }
 
     render() {
         const { isAdvancedFilter, result, isLoading } = this.props;
@@ -41,7 +41,7 @@ class ListOfCoins extends Component {
         const indexOfLastCoin = activePage * coinsPerPage;
         const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
         const activeCoins = result.slice(indexOfFirstCoin, indexOfLastCoin);
-        const paginate = (activePage) => this.setState({activePage: activePage})
+        const paginate = (activePage) => this.setState({ activePage: activePage })
 
         return (
             <>
@@ -94,30 +94,31 @@ class ListOfCoins extends Component {
                 <Card.Footer>
                     <Row>
                         <Col>
-                    <Paginator coinsPerPage={coinsPerPage}
-                        allCoins={result.length}
-                        activePage={activePage} 
-                        paginate={paginate} />
+                            <Paginator coinsPerPage={coinsPerPage}
+                                allCoins={result.length}
+                                activePage={activePage}
+                                paginate={paginate} />
                         </Col>
                         <Col>
-                    <Form.Group className="mb-1">
-                        <Row>
-                            <Col>
-                        <Form.Label className="main-label">Total amount is {result.length}</Form.Label>
+                            <Form.Group className="mb-1">
+                                <Row>
+                                    <Col>
+                                        <Form.Select className="form-control" name="coinsPerPage"
+                                            style={{ width: '5rem', display: 'inline-block' }}
+                                            onChange={this.handleChange}>
+                                            <option value={4}>4</option>
+                                            <option value={6}>6</option>
+                                            <option value={8}>8</option>
+                                            <option value={10}>10</option>
+                                        </Form.Select>
+                                        <Form.Label className="main-label"
+                                            style={{ marginLeft: '0.5rem' }}>
+                                            out of <b>{result.length}</b> coins
+                                        </Form.Label>
+                                    </Col>
+                                </Row>
+                            </Form.Group>
                         </Col>
-                        <Col>
-                        <Form.Select className="form-control" name="coinsPerPage"
-                            style={{ width: '5rem' }}
-                         onChange={this.handleChange}>
-                            <option value={4}>4</option>
-                            <option value={6}>6</option>
-                            <option value={8}>8</option>
-                            <option value={10}>10</option>
-                            </Form.Select>
-                            </Col>
-                        </Row>
-                    </Form.Group>
-                    </Col>
                     </Row>
                 </Card.Footer>
             </>
