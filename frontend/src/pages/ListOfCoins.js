@@ -92,6 +92,7 @@ class ListOfCoins extends Component {
                     </Form>
                 </Container>
                 <Card.Footer>
+                    <Container>
                     <Row>
                         <Col>
                             <Paginator coinsPerPage={coinsPerPage}
@@ -120,6 +121,7 @@ class ListOfCoins extends Component {
                             </Form.Group>
                         </Col>
                     </Row>
+                    </Container>
                 </Card.Footer>
             </>
         )
