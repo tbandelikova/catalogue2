@@ -15,22 +15,23 @@
     margin-bottom: 0px;
 }
 
-.btn {
-    font-size: 0.85rem !important;
-    border-radius: 1px !important;
-    border: 1px solid !important;
-    padding: 0.75rem 2rem !important;
+a.btn {
+    font-size: 0.85rem;
+    border-radius: 1px;
+    border: 1px solid #833AE0;
+    padding: 0.75rem 2rem;
 }
 
-.btn-primary {
-    background-color: #833AE0 !important;
-    transition: all 0.2s linear !important;
+a.btn-primary {
+    background-color: #833AE0;
+    transition: all 0.2s linear;
 }
 
-.btn-primary:hover {
-    transition: all 0.2s linear !important;
-    background-color: #c86adfcc !important;
-    opacity: 0.8 !important;
+a.btn-primary:hover {
+    transition: all 0.2s linear;
+    background-color: #c86adfcc;
+    opacity: 0.8;
+    border: none;
 }
 .btn a {
     color: #FFFFFF;

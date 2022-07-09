@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Card, Container, Row, Col, Navbar, Breadcrumb } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { imgPath } from "../config";
+import "./ListOfCoins.css";
 import Filter from "../components/Filter";
 import AdvFilter from "../components/AdvFilter";
 import Paginator from "../components/Paginator";
@@ -74,7 +74,7 @@ class ListOfCoins extends Component {
                                         <Card>
                                             <Row>
                                                 <Col>
-                                                    <Card.Img src={imgPath + card.avers_img.slice(card.avers_img.indexOf('/'))}
+                                                    <Card.Img src={card.avers_img}
                                                         alt={'coin ' + card.avers_img} style={{ width: '60%' }} />
                                                 </Col>
                                                 <Col>
@@ -93,34 +93,34 @@ class ListOfCoins extends Component {
                 </Container>
                 <Card.Footer>
                     <Container>
-                    <Row>
-                        <Col>
-                            <Paginator coinsPerPage={coinsPerPage}
-                                allCoins={result.length}
-                                activePage={activePage}
-                                paginate={paginate} />
-                        </Col>
-                        <Col>
-                            <Form.Group className="mb-1">
-                                <Row>
-                                    <Col>
-                                        <Form.Select className="form-control" name="coinsPerPage"
-                                            style={{ width: '5rem', display: 'inline-block' }}
-                                            onChange={this.handleChange}>
-                                            <option value={4}>4</option>
-                                            <option value={6}>6</option>
-                                            <option value={8}>8</option>
-                                            <option value={10}>10</option>
-                                        </Form.Select>
-                                        <Form.Label className="main-label"
-                                            style={{ marginLeft: '0.5rem' }}>
-                                            out of <b>{result.length}</b> coins
-                                        </Form.Label>
-                                    </Col>
-                                </Row>
-                            </Form.Group>
-                        </Col>
-                    </Row>
+                        <Row>
+                            <Col>
+                                <Paginator coinsPerPage={coinsPerPage}
+                                    allCoins={result.length}
+                                    activePage={activePage}
+                                    paginate={paginate} />
+                            </Col>
+                            <Col>
+                                <Form.Group className="mb-1">
+                                    <Row>
+                                        <Col>
+                                            <Form.Select className="form-control" name="coinsPerPage"
+                                                style={{ width: '5rem', display: 'inline-block' }}
+                                                onChange={this.handleChange}>
+                                                <option value={4}>4</option>
+                                                <option value={6}>6</option>
+                                                <option value={8}>8</option>
+                                                <option value={10}>10</option>
+                                            </Form.Select>
+                                            <Form.Label className="main-label"
+                                                style={{ marginLeft: '0.5rem' }}>
+                                                out of <b>{result.length}</b> coins
+                                            </Form.Label>
+                                        </Col>
+                                    </Row>
+                                </Form.Group>
+                            </Col>
+                        </Row>
                     </Container>
                 </Card.Footer>
             </>

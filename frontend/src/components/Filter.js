@@ -57,8 +57,7 @@ class Filter extends Component {
     }
 
     render() {
-        const {inputValue} = this.props;
-
+        const {inputValue} = this.props.filterParams;
         return (
             <Row className="search-block">
                 <Col md>

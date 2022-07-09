@@ -2,7 +2,6 @@ import React from "react";
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Card, Row, Col, Table, Container} from 'react-bootstrap';
-import { imgPath } from "../config";
 
 export default function CoinDescription() {
     const location = useLocation()
@@ -13,10 +12,10 @@ export default function CoinDescription() {
                 <Row className="justify-content-md-center">
                 <Col lg md='5'>
                 <Card>                                
-                    <Card.Img variant="top" src={imgPath + coin.avers_img.slice(coin.avers_img.indexOf('/'))}
+                    <Card.Img variant="top" src={coin.avers_img}
                         alt="https://via.placeholder.com/100" style={{ width: '50%' }} />
                     <br></br>
-                    <Card.Img variant="bottom" src={imgPath + coin.revers_img.slice(coin.revers_img.indexOf('/'))}
+                    <Card.Img variant="bottom" src={coin.revers_img}
                         alt="https://via.placeholder.com/100" style={{ width: '50%' }} />
                 </Card>
                 </Col>
