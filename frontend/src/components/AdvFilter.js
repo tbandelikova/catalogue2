@@ -32,7 +32,7 @@ class AdvFilter extends Component {
                         <Form.Label className="main-label">Issuing country</Form.Label>
                         <Form.Select className="form-control" name="country" onChange={this.handleChange}
                             defaultValue={country}>
-                            <option value=""></option>
+                            <option value="">----All----</option>
                             {countries.map((country, i) => (
 
                                 <option key={i} value={country}>{country}</option>
@@ -43,7 +43,7 @@ class AdvFilter extends Component {
                         <Form.Label className="main-label">Metal</Form.Label>
                         <Form.Select className="form-control" name="metal" onChange={this.handleChange}
                             defaultValue={metal}>
-                            <option value=""></option>
+                            <option value="">----All----</option>
                             <option value="Gold">Gold</option>
                             <option value="Nickel">Nickel</option>
                             <option value="Silver">Silver</option>
@@ -54,7 +54,7 @@ class AdvFilter extends Component {
                         <Form.Label className="main-label">Quality of the coin</Form.Label>
                         <Form.Select className="form-control" name="quality" onChange={this.handleChange}
                             defaultValue={quality}>
-                            <option value=""></option>
+                            <option value="">----All----</option>
                             <option value="BU">Brilliant Uncirculated</option>
                             <option value="Proof">Proof</option>
                             <option value="Bullion">Bullion</option>
