@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Form, Card, Container, Row, Col, Navbar, Breadcrumb } from "react-bootstrap";
+import { Form, Card, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./ListOfCoins.css";
 import Filter from "../components/Filter";
 import AdvFilter from "../components/AdvFilter";
 import Paginator from "../components/Paginator";
+import Navigation from "../components/Navigation";
 
 import { toggleFilter } from "../redux/actions";
 import { connect } from "react-redux";
@@ -45,17 +46,7 @@ class ListOfCoins extends Component {
 
         return (
             <>
-                <Navbar>
-                    <Container>
-                        <Navbar.Brand className="display-4">List of the coins</Navbar.Brand>
-                        <Breadcrumb>
-                            <Breadcrumb.Item>
-                                <Link to="/">Homepage</Link>
-                            </Breadcrumb.Item>
-                            <Breadcrumb.Item active>List of the coins</Breadcrumb.Item>
-                        </Breadcrumb>
-                    </Container>
-                </Navbar>
+                <Navigation title="List of the coins" condition="true" />
                 <Container>
                     <Form>
                         <Filter />
@@ -75,7 +66,7 @@ class ListOfCoins extends Component {
                                             <Row>
                                                 <Col>
                                                     <Card.Img src={card.avers_img}
-                                                        alt={'coin ' + card.avers_img} style={{ width: '60%' }} />
+                                                        alt={'coin ' + card.avers_img} style={{ width: '50%' }} />
                                                 </Col>
                                                 <Col>
                                                     <Card.Body>
