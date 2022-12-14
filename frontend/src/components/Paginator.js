@@ -7,7 +7,7 @@ export default function Paginator({coinsPerPage, allCoins, activePage, paginate}
       items.push(
         <Pagination.Item key={number} active={number === activePage}
           onClick={() => paginate(number)}>
-          {number}  
+          {number}
         </Pagination.Item>,
       );
     }

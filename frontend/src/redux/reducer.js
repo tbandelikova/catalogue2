@@ -1,6 +1,6 @@
 const initialState = {
     coins: [],
-    filterParams: {  
+    filterParams: {
         inputValue: '',
         country: '',
         metal: '',
@@ -25,21 +25,21 @@ function reducer(state = initialState, action) {
         case 'LIST_OF_COINS':
             const coins = action.payload.coins;
             state.isAdvancedFilter = false;
-            return {...state, coins}  
+            return {...state, coins}
         case 'TOGGLE_FILTER':
             return {
                 ...state,
                 isAdvancedFilter: !state.isAdvancedFilter
-            } 
+            }
         case 'LOADING_STATUS':
             return {
                 ...state,
                 isLoading: action.payload.isLoading
-            }      
+            }
         default:
             return state;
     }
-    
+
 }
 
 export default reducer;
