@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 5000;
+const PORT = process.env.PORT || 5000;
 const mysql = require('mysql2');
 const DB_CONNECTION = {
     host: 'localhost',
@@ -105,6 +105,6 @@ app.get('/list/:id', cors(corsOptions), (req, res) => {
   });
 });
 
-app.listen(port, function () {
-    console.log(`App listening on port ${port}!`);
+app.listen(PORT, function () {
+    console.log(`App listening on port ${PORT}!`);
 });
