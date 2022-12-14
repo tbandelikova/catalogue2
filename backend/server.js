@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const mysql = require('mysql2');
@@ -12,12 +13,13 @@ const DB_CONNECTION = {
 }
 
 var corsOptions = {
-    origin: 'https://catalogue-coins.onrender.com',
+    origin: 'http://localhost:3000',
     optionsSuccessStatus: 200
 }
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname + '/public')));
 
 const connection = mysql.createConnection({
     host: DB_CONNECTION.host,
