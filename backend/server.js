@@ -12,8 +12,7 @@ const DB_CONNECTION = {
 }
 
 var corsOptions = {
-    credentials: true,
-    origin: 'https://catalogue-coins.onrender.com',
+    origin: 'http://localhost:3000',
     optionsSuccessStatus: 200
 }
 
