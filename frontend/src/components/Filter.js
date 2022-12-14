@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
         filterParams: state.filterParams,
         isAdvancedFilter: state.isAdvancedFilter
     }
-  } 
+  }
 
 class Filter extends Component {
 
@@ -27,7 +27,7 @@ class Filter extends Component {
         this.props.filterCoins({ [e.target.name]: e.target.value });
     }
 
-    handleClick = () => {  
+    handleClick = () => {
         const SEARCH_URL = new URL('http://localhost:5000/search');
         const { inputValue, country, metal, quality, fromPrice, toPrice, fromYear, toYear} = this.props.filterParams;
         const params = {
@@ -63,7 +63,7 @@ class Filter extends Component {
                 <Col md>
                     <Form.Group className="mb-0" controlId="formText">
                         <Form.Label className="main-label">Input field</Form.Label>
-                        <Form.Control className="main-input" type="text" 
+                        <Form.Control className="main-input" type="text"
                         name='inputValue'
                         value={inputValue}
                         onChange={this.handleChange} />
@@ -73,7 +73,7 @@ class Filter extends Component {
                     <Link to="/search" className="btn btn-primary" role="button"
                         onClick={this.handleClick}>Search</Link>
                 </Col>
-            </Row>   
+            </Row>
         )
     }
 

@@ -11,7 +11,7 @@ export default function CoinDescription() {
             <Container>
                 <Row className="justify-content-md-center">
                 <Col lg md='5'>
-                <Card>                                
+                <Card>
                     <Card.Img variant="top" src={coin.avers_img}
                         alt="https://via.placeholder.com/100" style={{ width: '50%' }} />
                     <br></br>
@@ -20,7 +20,7 @@ export default function CoinDescription() {
                 </Card>
                 </Col>
                 <Col lg md='5'>
-                <Card bg="light">                  
+                <Card bg="light">
                     <Card.Body>
                         <Card.Title>{coin.coinname}</Card.Title>
                         <Card.Text>{coin.about_info}</Card.Text>
@@ -57,7 +57,7 @@ export default function CoinDescription() {
                             </tr>
                         </tbody>
                         </Table>
-                    <Link to="/list">Back to the list</Link>                               
+                    <Link to="/list">Back to the list</Link>
                 </Card>
                 </Col>
                 </Row>

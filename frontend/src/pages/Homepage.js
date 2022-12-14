@@ -1,9 +1,10 @@
 import "./Homepage.css";
 import React, { Component } from "react";
-import { Container, Navbar, Form} from "react-bootstrap";
+import { Container, Form} from "react-bootstrap";
 import CategoryCards from "../components/CategoryCards";
 import Filter from "../components/Filter";
 import AdvFilter from "../components/AdvFilter";
+import Navigation from "../components/Navigation";
 
 import { toggleFilter } from "../redux/actions";
 import { connect } from "react-redux";
@@ -28,11 +29,7 @@ class Homepage extends Component {
         const {isAdvancedFilter} = this.props;
         return (
             <>
-                <Navbar>
-                    <Container>
-                        <Navbar.Brand className="display-4">Homepage</Navbar.Brand>
-                    </Container>
-                </Navbar>
+                <Navigation title="Homepage" condition="false" />
                 <Container>
                     <Form>
                         <Filter />
